@@ -7,7 +7,7 @@
 
 # Google's Python Class
 # http://code.google.com/edu/languages/google-python-class/
-
+__author__ = "detrich with help from david R"
 # Additional basic list exercises
 
 # D. Given a list of numbers, return a list where
@@ -18,8 +18,11 @@
 
 
 def remove_adjacent(nums):
-    """Your code goes here.  Edit this docstring."""
-    return
+    newList = []
+    for num in nums:
+        if not newList or newList[-1] != num:
+            newList.append(num)
+    return newList
 
 
 # E. Given two lists sorted in increasing order, create and return a merged
@@ -27,8 +30,13 @@ def remove_adjacent(nums):
 # The solution should work in "linear" time, making a single pass of both lists.
 # Hint: Don't use `sort` or `sorted` -- they are not linear time.
 def linear_merge(list1, list2):
-    """Your code goes here.  Edit this docstring."""
-    return
+    newList = []
+    while list1 and list2:
+        if list1[0] < list2[0]:
+            newList.append(list1.pop(0))
+        else: newList.append(list2.pop(0))
+    newList += list1 if not list2 else list2
+    return newList
 
 
 # Simple provided test() function used in main() to print
